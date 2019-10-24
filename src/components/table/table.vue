@@ -649,7 +649,7 @@
             },
             contextmenuCurrentRow (_index, rawEvent) {
                 this.highlightCurrentRow(_index);
-                this.$emit('on-row-contextmenu', JOSN.parse(JSON.stringify(this.cloneData[_index])), _index, rawEvent);
+                this.$emit('on-row-contextmenu', JSON.parse(JSON.stringify(this.cloneData[_index])), _index, rawEvent);
             },
             getSelection () {
                 let selectionIndexes = [];

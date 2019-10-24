@@ -1,9 +1,9 @@
 {
-    "name": "view-design",
-    "version": "4.0.2",
-    "title": "ViewUI",
+    "name": "@kinch-tech/ui",
+    "version": "1.0.3",
+    "title": "@kinch-tech/ui",
     "description": "A high quality UI components Library with Vue.js",
-    "homepage": "http://www.iviewui.com",
+    "homepage": "http://www.github.com",
     "keywords": [
         "iview",
         "vue",
@@ -35,15 +35,7 @@
         "test": "npm run lint && npm run tslint && npm run unit",
         "prepare": "npm run dist"
     },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/view-design/ViewUI"
-    },
-    "author": "Aresn",
     "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/view-design/ViewUI/issues"
-    },
     "dependencies": {
         "async-validator": "^1.10.0",
         "deepmerge": "^2.2.1",

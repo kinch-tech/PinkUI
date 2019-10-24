@@ -17,6 +17,7 @@ Modal.newInstance = properties => {
             body: '',
             iconType: '',
             iconName: '',
+            className: undefined,
             okText: undefined,
             cancelText: undefined,
             showCancel: false,
@@ -100,7 +101,8 @@ Modal.newInstance = properties => {
                 props: Object.assign({}, _props, {
                     width: this.width,
                     scrollable: this.scrollable,
-                    closable: this.closable
+                    closable: this.closable,
+                    className: this.className
                 }),
                 domProps: {
                     value: this.visible
@@ -257,6 +259,10 @@ Modal.newInstance = properties => {
 
             if ('scrollable' in props) {
                 modal.$parent.scrollable = props.scrollable;
+            }
+
+            if('className' in props){
+                modal.$parent.className = props.className;
             }
 
             // notice when component destroy
