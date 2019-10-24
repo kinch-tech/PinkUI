@@ -13,7 +13,8 @@
                     @mouseenter.native.stop="handleMouseIn(row._index)"
                     @mouseleave.native.stop="handleMouseOut(row._index)"
                     @click.native="clickCurrentRow(row._index)"
-                    @dblclick.native.stop="dblclickCurrentRow(row._index)">
+                    @dblclick.native.stop="dblclickCurrentRow(row._index)"
+                    @contextmenu.native.prevent="contextmenuCurrentRow(row._index, $event)">
                     <td v-for="(column, colIndex) in columns" :class="alignCls(column, row)" v-bind="getSpan(row, column, index, colIndex)" v-if="showWithSpan(row, column, index, colIndex)">
                         <table-cell
                             :fixed="fixed"
@@ -104,6 +105,9 @@
             },
             dblclickCurrentRow (_index) {
                 this.$parent.dblclickCurrentRow(_index);
+            },
+            contextmenuCurrentRow (_index, event) {
+                this.$parent.contextmenuCurrentRow(_index, event);
             },
             getSpan (row, column, rowIndex, columnIndex) {
                 const fn = this.$parent.spanMethod;

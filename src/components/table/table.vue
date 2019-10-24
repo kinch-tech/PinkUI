@@ -647,6 +647,10 @@
                 this.highlightCurrentRow (_index);
                 this.$emit('on-row-dblclick', JSON.parse(JSON.stringify(this.cloneData[_index])), _index);
             },
+            contextmenuCurrentRow (_index, rawEvent) {
+                this.highlightCurrentRow(_index);
+                this.$emit('on-row-contextmenu', JOSN.parse(JSON.stringify(this.cloneData[_index])), _index, rawEvent);
+            },
             getSelection () {
                 let selectionIndexes = [];
                 for (let i in this.objData) {
