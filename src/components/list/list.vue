@@ -2,7 +2,11 @@
     <div :class="classes">
         <div class="ivu-list-header" v-if="header || $slots.header"><slot name="header">{{ header }}</slot></div>
         <div class="ivu-list-container">
-            <ul class="ivu-list-items"><slot></slot></ul>
+            <ul class="ivu-list-items">
+                <slot>
+                    <li class="ivu-list-empty">暂无数据</li>
+                </slot>
+            </ul>
         </div>
         <Spin v-if="loading" fix size="large"><slot name="spin"></slot></Spin>
         <div class="ivu-list-footer" v-if="footer || $slots.footer"><slot name="footer">{{ footer }}</slot></div>
