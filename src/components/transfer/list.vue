@@ -2,8 +2,11 @@
     <div :class="classes" :style="listStyle">
         <div :class="prefixCls + '-header'">
             <Checkbox :value="checkedAll" :disabled="checkedAllDisabled" @on-change="toggleSelectAll"></Checkbox>
-            <span :class="prefixCls + '-header-title'" @click="toggleSelectAll(!checkedAll)">{{ title }}</span>
-            <span :class="prefixCls + '-header-count'">{{ count }}</span>
+            <span :class="prefixCls + '-header-title'">
+                <Render v-if="typeof title === 'function'" :render="title" />
+                <template v-else>{{ title }}</template>
+            </span>
+            <!-- <span :class="prefixCls + '-header-count'">{{ count }}</span> -->
         </div>
         <div :class="bodyClasses">
             <div :class="prefixCls + '-body-search-wrapper'" v-if="filterable">
@@ -31,17 +34,18 @@
 <script>
     import Search from './search.vue';
     import Checkbox from '../checkbox/checkbox.vue';
+    import Render from '../base/render';
 
     export default {
         name: 'TransferList',
-        components: { Search, Checkbox },
+        components: { Search, Checkbox, Render },
         props: {
             prefixCls: String,
             data: Array,
             renderFormat: Function,
             checkedKeys: Array,
             listStyle: Object,
-            title: [String, Number],
+            title: [String, Number, Function],
             filterable: Boolean,
             filterPlaceholder: String,
             filterMethod: Function,
