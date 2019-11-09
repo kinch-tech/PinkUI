@@ -36,6 +36,9 @@
                 type: Boolean,
                 default: false
             },
+            state: {
+                type:[String,Number,Object]
+            },
             // 4.0.0
             tag: {
                 type: [String, Number]

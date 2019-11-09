@@ -103,7 +103,7 @@
                     return disabled;
                 } else {
                     const slots = [24, 60, 60];
-                    const disabled = ['Hours', 'Minutes', 'Seconds'].map(type => this[`disabled${type}`]);
+                    const disabled = ['Hours', 'Minutes', 'Seconds'].map(type => []);
                     const disabledHMS = disabled.map((preDisabled, j) => {
                         const slot = slots[j];
                         const toDisable = preDisabled;

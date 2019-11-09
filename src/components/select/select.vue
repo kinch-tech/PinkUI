@@ -523,7 +523,7 @@
 
             validateOption({children, elm, propsData}){
                 if(this.filterMethod){
-                    return this.filterMethod(this.query);                    
+                    return this.filterMethod(this.query, propsData);                    
                 }
                 else{
                     const value = propsData.value;
