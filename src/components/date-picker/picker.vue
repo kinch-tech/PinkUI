@@ -50,6 +50,8 @@
                         :confirm="isConfirm"
                         :selectionMode="selectionMode"
                         :steps="steps"
+                        :min="min"
+                        :max="max"
                         :format="format"
                         :value="internalValue"
                         :start-date="startDate"
@@ -203,6 +205,15 @@
                 type: Array,
                 default: () => []
             },
+            min: {
+                type: Array,
+                default: () => []
+            },
+            max: {
+                type: Array,
+                default: () => []
+            },
+            
             value: {
                 type: [Date, String, Array]
             },

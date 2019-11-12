@@ -7,6 +7,8 @@
                     ref="timeSpinner"
                     :show-seconds="showSeconds"
                     :steps="steps"
+                    :min="min"
+                    :max="max"
                     :hours="timeSlots[0]"
                     :minutes="timeSlots[1]"
                     :seconds="timeSlots[2]"
@@ -61,6 +63,14 @@
             steps: {
                 type: Array,
                 default: () => []
+            },
+            min:{
+                type:Array,
+                default:()=>[]
+            },
+            max:{
+                type:Array,
+                default:()=>[]
             },
             format: {
                 type: String,

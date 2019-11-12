@@ -47,6 +47,14 @@
             steps: {
                 type: Array,
                 default: () => []
+            },
+            min:{
+                type:Array,
+                default: ()=>[]
+            },
+            max:{
+                type:Array,
+                default: ()=>[]
             }
         },
         data () {
@@ -55,7 +63,9 @@
                 prefixCls: prefixCls,
                 compiled: false,
                 focusedColumn: -1, // which column inside the picker
-                focusedTime: [0, 0, 0] // the values array into [hh, mm, ss]
+                focusedTime: [0, 0, 0], // the values array into [hh, mm, ss]
+                spinerMin:[0,0,0].map((one,i)=>Math.abs(this.min[i]) || one),
+                spinerMax:[24,60,60].map((one,i)=>Math.abs(this.max[i]) || one)
             };
         },
         computed: {
@@ -70,6 +80,8 @@
             hoursList () {
                 let hours = [];
                 const step = this.spinerSteps[0];
+                const min = this.spinerMin[0];
+                const max = this.spinerMax[0];
                 const focusedHour = this.focusedColumn === 0 && this.focusedTime[0];
                 const hour_tmpl = {
                     text: 0,
@@ -78,7 +90,7 @@
                     hide: false
                 };
 
-                for (let i = 0; i < 24; i += step) {
+                for (let i = min; i < max; i += step) {
                     const hour = deepCopy(hour_tmpl);
                     hour.text = i;
                     hour.focused = i === focusedHour;
@@ -96,6 +108,8 @@
             minutesList () {
                 let minutes = [];
                 const step = this.spinerSteps[1];
+                const min = this.spinerMin[1];
+                const max = this.spinerMax[1];
                 const focusedMinute = this.focusedColumn === 1 && this.focusedTime[1];
                 const minute_tmpl = {
                     text: 0,
@@ -104,7 +118,7 @@
                     hide: false
                 };
 
-                for (let i = 0; i < 60; i += step) {
+                for (let i = min; i < max; i += step) {
                     const minute = deepCopy(minute_tmpl);
                     minute.text = i;
                     minute.focused = i === focusedMinute;
@@ -121,6 +135,8 @@
             secondsList () {
                 let seconds = [];
                 const step = this.spinerSteps[2];
+                const min = this.spinerMin[2];
+                const max = this.spinerMax[2];
                 const focusedMinute = this.focusedColumn === 2 && this.focusedTime[2];
                 const second_tmpl = {
                     text: 0,
@@ -129,7 +145,7 @@
                     hide: false
                 };
 
-                for (let i = 0; i < 60; i += step) {
+                for (let i = min; i < max; i += step) {
                     const second = deepCopy(second_tmpl);
                     second.text = i;
                     second.focused = i === focusedMinute;

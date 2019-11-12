@@ -249,17 +249,17 @@
 
 <template>
     <div style="width: 500px;margin: 100px;">
-        <p><input type="text"></p>
+        <!-- <p><input type="text"></p>
 
         <DatePicker type="month" show-week-numbers placeholder="Select date" style="width: 200px"></DatePicker>
         <DatePicker type="year" show-week-numbers placeholder="Select date" style="width: 200px"></DatePicker>
 
-        <DatePicker type="date" transfer show-week-numbers placeholder="Select date" style="width: 400px"></DatePicker>
-        <DatePicker type="datetime" show-week-numbers confirm placeholder="Select date" style="width: 400px"></DatePicker>
-
-        <DatePicker type="daterange" transfer show-week-numbers placeholder="Select date" style="width: 400px"></DatePicker>
+        <DatePicker type="date" transfer show-week-numbers placeholder="Select date" style="width: 400px"></DatePicker> -->
+        <DatePicker type="datetime" :time-picker-options="{min:[8,0,0]}" confirm placeholder="Select date" style="width: 400px"></DatePicker>
+        <Time-Picker :steps="[1, 1, 15]" :min="[8,0,0]" :value="new Date()"></Time-Picker>
+        <!-- <DatePicker type="daterange" transfer show-week-numbers placeholder="Select date" style="width: 400px"></DatePicker>
         <DatePicker type="datetimerange" transfer show-week-numbers placeholder="Select date" style="width: 400px"></DatePicker>
-        <Time-Picker :steps="[1, 1, 15]" :value="new Date()"></Time-Picker>
+        
         <Divider>快捷方式</Divider>
         <Row>
             <Col span="12">
@@ -268,7 +268,7 @@
             <Col span="12">
                 <DatePicker type="daterange" :options="options2" placement="bottom-end" placeholder="Select date" style="width: 200px"></DatePicker>
             </Col>
-        </Row>
+        </Row> -->
     </div>
 </template>
 <script>

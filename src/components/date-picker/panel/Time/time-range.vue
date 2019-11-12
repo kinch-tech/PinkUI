@@ -9,6 +9,8 @@
                 <time-spinner
                     ref="timeSpinner"
                     :steps="steps"
+                    :min="min"
+                    :max="max"
                     :show-seconds="showSeconds"
                     :hours="value[0] && dateStart.getHours()"
                     :minutes="value[0] && dateStart.getMinutes()"
@@ -28,6 +30,8 @@
                 <time-spinner
                     ref="timeSpinnerEnd"
                     :steps="steps"
+                    :min="min"
+                    :max="max"
                     :show-seconds="showSeconds"
                     :hours="value[1] && dateEnd.getHours()"
                     :minutes="value[1] && dateEnd.getMinutes()"
@@ -70,6 +74,14 @@
             steps: {
                 type: Array,
                 default: () => []
+            },
+            min:{
+                type:Array,
+                default:()=>[]
+            },
+            max:{
+                type:Array,
+                default:()=>[]
             },
             format: {
                 type: String,
